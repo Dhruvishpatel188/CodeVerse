@@ -1,0 +1,57 @@
+package com.grownited.controller;
+
+import java.time.LocalDate;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.grownited.entity.UserDetailEntity;
+import com.grownited.entity.UserEntity;
+import com.grownited.repository.UserRepository;
+
+@Controller
+public class SessionController {
+	
+	@Autowired
+	UserRepository userRepository;
+	
+	@GetMapping("signup")
+	public String openSignup() {
+		return "Signup";
+	}
+	@GetMapping("login")
+	public String openlogin() {
+		return "Login";
+	}
+	@GetMapping("forgotpassword")
+	public String ForgotPassword() {
+		return "ForgotPassWord";
+	}
+	@PostMapping("regiestr")
+	public String Regiestr(UserEntity userEntity , UserDetailEntity userDetailEntity) {
+		System.out.println(userEntity.getFirstName());
+		System.out.println(userEntity.getLastName());
+		
+		System.out.println(userDetailEntity.getCountry());
+		System.out.println(userDetailEntity.getState());
+		
+		userEntity.setRole("PARTICIPANT");
+		userEntity.setActive(true);
+		userEntity.setCreatedAt(LocalDate.now());
+		
+		
+		
+		userRepository.save(userEntity);
+		
+		
+		
+		return "Login";
+	}
+	
+	
+	
+	
+
+}
