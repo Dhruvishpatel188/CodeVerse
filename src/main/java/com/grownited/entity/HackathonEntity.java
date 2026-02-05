@@ -14,7 +14,7 @@ public class HackathonEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer hackthon_id;
+	private Long hackthon_id;
 	private String title;
 	private String status;
 	private String event_type;
@@ -26,10 +26,11 @@ public class HackathonEntity {
 	private LocalDate registrationStartDate;
 	private LocalDate registrationEndDate;
 	
-	public Integer getHackthon_id() {
+	
+	public Long getHackthon_id() {
 		return hackthon_id;
 	}
-	public void setHackthon_id(Integer hackthon_id) {
+	public void setHackthon_id(Long hackthon_id) {
 		this.hackthon_id = hackthon_id;
 	}
 	public String getTitle() {

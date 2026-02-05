@@ -23,7 +23,8 @@ public class HackathonController {
 	public String SaveHackathon(HackathonEntity hackathonEntity ) {
 		
 		hackathonRepository.save(hackathonEntity);
-		return  "ListHacathon";
+	    return "redirect:/hackathon";
+
 	}
 	
 
