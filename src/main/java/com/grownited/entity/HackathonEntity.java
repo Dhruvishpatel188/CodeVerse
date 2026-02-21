@@ -9,29 +9,31 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name ="hackathon")
+@Table(name = "hackathon")
 public class HackathonEntity {
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long hackthon_id;
-	private String title;
-	private String status;
-	private String event_type;
-	private String payment;
-	private String minTeamSize;
-	private String maxTeamSize;
-	private String location;
-	private String userType;
-	private LocalDate registrationStartDate;
-	private LocalDate registrationEndDate;
+	Integer hackathonId;
+	
+	String title;
+	String status;
+	String eventType;
+	String payment;
+	Integer minTeamSize;
+	Integer maxTeamSize;
+	String location;
+	Integer userTypeId;// fk
+	LocalDate registrationStartDate;
+	LocalDate registrationEndDate;
+	
+	Integer userId; //fk 
 	
 	
-	public Long getHackthon_id() {
-		return hackthon_id;
+	public Integer getHackathonId() {
+		return hackathonId;
 	}
-	public void setHackthon_id(Long hackthon_id) {
-		this.hackthon_id = hackthon_id;
+	public void setHackathonId(Integer hackathonId) {
+		this.hackathonId = hackathonId;
 	}
 	public String getTitle() {
 		return title;
@@ -45,29 +47,28 @@ public class HackathonEntity {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public String getEvent_type() {
-		return event_type;
+	public String getEventType() {
+		return eventType;
 	}
-	public void setEvent_type(String event_type) {
-		this.event_type = event_type;
+	public void setEventType(String eventType) {
+		this.eventType = eventType;
 	}
-	
 	public String getPayment() {
 		return payment;
 	}
 	public void setPayment(String payment) {
 		this.payment = payment;
 	}
-	public String getMinTeamSize() {
+	public Integer getMinTeamSize() {
 		return minTeamSize;
 	}
-	public void setMinTeamSize(String minTeamSize) {
+	public void setMinTeamSize(Integer minTeamSize) {
 		this.minTeamSize = minTeamSize;
 	}
-	public String getMaxTeamSize() {
+	public Integer getMaxTeamSize() {
 		return maxTeamSize;
 	}
-	public void setMaxTeamSize(String maxTeamSize) {
+	public void setMaxTeamSize(Integer maxTeamSize) {
 		this.maxTeamSize = maxTeamSize;
 	}
 	public String getLocation() {
@@ -76,11 +77,11 @@ public class HackathonEntity {
 	public void setLocation(String location) {
 		this.location = location;
 	}
-	public String getUserType() {
-		return userType;
+	public Integer getUserTypeId() {
+		return userTypeId;
 	}
-	public void setUserType(String userType) {
-		this.userType = userType;
+	public void setUserTypeId(Integer userTypeId) {
+		this.userTypeId = userTypeId;
 	}
 	public LocalDate getRegistrationStartDate() {
 		return registrationStartDate;
@@ -94,6 +95,12 @@ public class HackathonEntity {
 	public void setRegistrationEndDate(LocalDate registrationEndDate) {
 		this.registrationEndDate = registrationEndDate;
 	}
-	
+	public Integer getUserId() {
+		return userId;
+	}
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
+
 	
 }

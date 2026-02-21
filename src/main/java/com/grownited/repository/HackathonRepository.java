@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.grownited.entity.HackathonEntity;
 
 @Repository
-public interface HackathonRepository  extends JpaRepository<HackathonEntity, Integer>{
+public interface HackathonRepository extends JpaRepository<HackathonEntity, Integer>{
 
 }

@@ -1,110 +1,157 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Signup</title>
+<title>User Registration</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<!-- Bootstrap 5 -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-
-<style>
-body{
-    background: linear-gradient(135deg,#667eea,#764ba2);
-}
-.card{
-    border: none;
-}
-.form-control, .form-select{
-    border-radius: 30px;
-}
-.btn{
-    border-radius: 30px;
-}
-</style>
+<!-- Bootstrap CSS -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+	rel="stylesheet">
 </head>
+<body class="bg-light">
 
-<body>
+	<div class="container mt-5">
+		<div class="row justify-content-center">
+			<div class="col-lg-6 col-md-8 col-sm-12">
 
-<div class="container min-vh-100 d-flex align-items-center justify-content-center">
-<div class="col-lg-7 col-md-9 col-12">
+				<div class="card shadow">
+					<div class="card-header bg-primary text-white text-center">
+						<h4>User Registration</h4>
+					</div>
 
-<div class="card shadow-lg rounded-4">
-<div class="card-body p-4 p-md-5">
+					<div class="card-body">
+						<form action="register" method="post">
 
-<h3 class="text-center fw-bold mb-4 text-primary">
-<i class="bi bi-person-plus-fill"></i> Create Account
-</h3>
+							<!-- First Name -->
+							<div class="mb-3">
+								<label class="form-label">First Name</label> <input type="text"
+									name="firstName" class="form-control" required>
+							</div>
 
-<form action="/register" method="post">
+							<!-- Last Name -->
+							<div class="mb-3">
+								<label class="form-label">Last Name</label> <input type="text"
+									name="lastName" class="form-control" required>
+							</div>
 
-<!-- Name -->
-<div class="row">
-    <div class="col-md-6 mb-3">
-        <input type="text" name="firstName" class="form-control" placeholder="First Name" required>
-    </div>
-    <div class="col-md-6 mb-3">
-        <input type="text" name="lastName" class="form-control" placeholder="Last Name" required>
-    </div>
-</div>
+							<!-- Email -->
+							<div class="mb-3">
+								<label class="form-label">Email</label> <input type="email"
+									name="email" class="form-control" required>
+							</div>
 
-<!-- Gender & Birth -->
-<div class="row">
-    <div class="col-md-6 mb-3">
-        <select name="gender" class="form-select" required>
-            <option value="">Select Gender</option>
-            <option>Male</option>
-            <option>Female</option>
-            <option>Other</option>
-        </select>
-    </div>
-    <div class="col-md-6 mb-3">
-        <input type="number" name="birthYear" class="form-control" placeholder="Birth Year">
-    </div>
-</div>
+							<!-- Password -->
+							<div class="mb-3">
+								<label class="form-label">Password</label> <input
+									type="password" name="password" class="form-control" required>
+							</div>
 
-<!-- Location -->
-<div class="row">
-    <div class="col-md-4 mb-3">
-        <input type="text" name="city" class="form-control" placeholder="City">
-    </div>
-    <div class="col-md-4 mb-3">
-        <input type="text" name="state" class="form-control" placeholder="State">
-    </div>
-    <div class="col-md-4 mb-3">
-        <input type="text" name="country" class="form-control" placeholder="Country">
-    </div>
-</div>
+							<!-- Gender -->
+							<div class="mb-3">
+								<label class="form-label d-block">Gender</label>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="radio" name="gender"
+										value="MALE" required> <label class="form-check-label">Male</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="radio" name="gender"
+										value="FEMALE"> <label class="form-check-label">Female</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input" type="radio" name="gender"
+										value="OTHER"> <label class="form-check-label">Other</label>
+								</div>
+							</div>
 
-<!-- Other Info -->
-<input type="text" name="qualification" class="form-control mb-3" placeholder="Qualification">
-<input type="tel" name="contactNum" class="form-control mb-3" placeholder="Contact Number">
-<input type="url" name="profilePicURL" class="form-control mb-3" placeholder="Profile Picture URL">
+							<!-- Birth Year -->
+							<div class="mb-3">
+								<label class="form-label">Birth Year</label> <input
+									type="number" name="birthYear" class="form-control" min="1900"
+									max="2100" required>
+							</div>
 
-<!-- Login Info -->
-<input type="email" name="email" class="form-control mb-3" placeholder="Email Address" required>
-<input type="password" name="password" class="form-control mb-4" placeholder="Password" required>
+							<!-- Contact Number -->
+							<div class="mb-3">
+								<label class="form-label">Contact Number</label> <input
+									type="text" name="contactNum" class="form-control" required>
+							</div>
 
-<button class="btn btn-primary w-100 fw-semibold py-2">
-<i class="bi bi-check-circle"></i> Create Account
-</button>
 
-</form>
+							<!-- Qualification -->
+							<div class="mb-3">
+								<label class="form-label">Qualification</label> <input
+									type="text" name="qualification" class="form-control"
+									placeholder="e.g. B.Tech, MCA, BSc" required>
+							</div>
 
-<p class="text-center mt-3 mb-0">
-Already have an account?
-<a href="login" class="text-decoration-none fw-semibold">Login</a>
-</p>
 
-</div>
-</div>
 
-</div>
-</div>
+							<div class="mb-3">
+								<label class="form-label">User Type</label> <select
+									name="userTypeId" class="form-control">
+									<option value="-1">---Select User Type---</option>
+
+									<c:forEach items="${allUserType}" var="ut">
+										<option value="${ut.userTypeId}">${ut.userType}</option>
+									</c:forEach>
+
+
+								</select>
+							</div>
+
+
+
+							<!-- City -->
+							<div class="mb-3">
+								<label class="form-label">City</label> <input type="text"
+									name="city" class="form-control" placeholder="Enter city"
+									required>
+							</div>
+
+							<!-- State -->
+							<div class="mb-3">
+								<label class="form-label">State</label> <input type="text"
+									name="state" class="form-control" placeholder="Enter state"
+									required>
+							</div>
+
+							<!-- Country -->
+							<div class="mb-3">
+								<label class="form-label">Country</label> <input type="text"
+									name="country" class="form-control" placeholder="Enter country"
+									value="India" required>
+							</div>
+
+
+							<!-- Profile Pic URL -->
+							<div class="mb-3">
+								<label class="form-label">Profile Picture URL</label> <input
+									type="file" name="profilePicURL" class="form-control">
+							</div>
+
+
+							<!-- Submit -->
+							<div class="d-grid">
+								<button type="submit" class="btn btn-success">Save User
+								</button>
+							</div>
+
+						</form>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<!-- Bootstrap JS -->
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

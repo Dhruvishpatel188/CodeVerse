@@ -1,99 +1,93 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Add New Category</title>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Skydash Admin</title>
+<!-- plugins:css -->
 
-<!-- Bootstrap 5 CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<!-- Bootstrap Icons -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-
-<style>
-    body {
-        min-height: 100vh;
-        background: linear-gradient(135deg, #667eea, #764ba2);
-        display: flex;
-        align-items: center;
-    }
-    .card {
-        border-radius: 16px;
-        border: none;
-    }
-    .card-header {
-        border-radius: 16px 16px 0 0;
-        background: #0d6efd;
-    }
-    .form-control:focus {
-        box-shadow: none;
-        border-color: #0d6efd;
-    }
-</style>
+<jsp:include page="AdminCSS.jsp"></jsp:include>
 </head>
-
 <body>
+	<div class="container-scroller">
+		<!-- partial:partials/_navbar.html -->
+		<jsp:include page="AdminHeader.jsp"></jsp:include>
+		<!-- partial -->
+		<div class="container-fluid page-body-wrapper">
+			<!-- partial:partials/_sidebar.html -->
+			<jsp:include page="AdminLeftSidebar.jsp"></jsp:include>
+			<!-- partial -->
+			<div class="main-panel">
+				<div class="content-wrapper">
+					<div class="row">
+						<div class="col-md-12 grid-margin">
+							<div class="row">
+								<div class="col-12 col-xl-8 mb-4 mb-xl-0">
+									<h3 class="font-weight-bold">New Category</h3>
 
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-6 col-lg-5">
-            <div class="card shadow-lg">
+								</div>
 
-                <!-- Card Header -->
-                <div class="card-header text-white text-center py-3">
-                    <h4 class="mb-0">
-                        <i class="bi bi-tags-fill me-2"></i>
-                        Add New Category
-                    </h4>
-                </div>
+							</div>
+						</div>
+					</div>
 
-                <!-- Card Body -->
-                <div class="card-body p-4">
 
-                    <form action="saveCategory" method="post">
+					<div class="row">
+						<div class="col-md-6 grid-margin stretch-card">
+							<div class="card">
+								<div class="card-body">
+									<div class="d-flex justify-content-between">
+										<p class="card-title">Add New Category</p>
+										<a href="listCategory" class="text-info">View all</a>
+									</div>
+									<form action="saveCategory" method="post">
 
-                        <!-- Category Name -->
-                        <div class="mb-4">
-                            <label class="form-label fw-semibold">
-                                Category Name
-                            </label>
-                            <div class="input-group">
-                                <span class="input-group-text">
-                                    <i class="bi bi-folder-plus"></i>
-                                </span>
-                                <input type="text"
-                                       name="categoryName"
-                                       class="form-control"
-                                       placeholder="Enter category name"
-                                       required>
-                            </div>
-                        </div>
+										<!-- Category Name -->
+										<div class="mb-3">
+											<label class="form-label">Category Name</label> <input
+												type="text" name="categoryName" class="form-control"
+												placeholder="Enter category name" required>
+										</div>
 
-                        <!-- Buttons -->
-                        <div class="d-grid gap-2">
-                            <button type="submit" class="btn btn-primary btn-lg">
-                                <i class="bi bi-save me-1"></i>
-                                Save Category
-                            </button>
+										<!-- Buttons -->
+										 
+											<button type="submit" class="btn btn-primary">Save
+												Category</button>
+											<a href="admin-dashboard" class="btn btn-secondary">
+												Cancel </a>
+									 
 
-                            <a href="admin-dashboard" class="btn btn-outline-secondary">
-                                <i class="bi bi-arrow-left me-1"></i>
-                                Cancel
-                            </a>
-                        </div>
+									</form>
 
-                    </form>
 
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+				</div>
+				<!-- content-wrapper ends -->
+				<!-- partial:partials/_footer.html -->
+
+				<jsp:include page="AdminFooter.jsp"></jsp:include>
+				<!-- partial -->
+			</div>
+			<!-- main-panel ends -->
+		</div>
+		<!-- page-body-wrapper ends -->
+	</div>
+	<!-- container-scroller -->
+	<!-- plugins:js -->
+
+
+
+
+	<!-- End custom js for this page-->
 </body>
 </html>
